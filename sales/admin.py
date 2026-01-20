@@ -77,7 +77,8 @@ class SalesOrderAdmin(admin.ModelAdmin):
         'subtotal',
         'total_amount',
         'created_at',
-        'updated_at'
+        'updated_at',
+        'order_date'
     )
 
     inlines = [SalesOrderItemInline]
@@ -85,12 +86,12 @@ class SalesOrderAdmin(admin.ModelAdmin):
 
     fieldsets = (
         ('Order Information', {
-            'fields': ('order_number', 'customer', 'order_date', 'status')
+            'fields': ('order_number', 'customer',  'status')
         }),
         ('Financial', {
             'fields': ('subtotal', 'tax_amount', 'total_amount')
         }),
         ('Additional', {
-            'fields': ('notes', 'created_by')
+            'fields': ('notes',)
         }),
     )
