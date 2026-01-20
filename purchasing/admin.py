@@ -44,7 +44,7 @@ class PurchaseOrderAdmin(admin.ModelAdmin):
     search_fields = ('order_number', 'supplier__name')
     list_filter = ('status', 'order_date')
     
-    readonly_fields = ('order_number', 'subtotal', 'total_amount', 'created_at', 'updated_at')
+    readonly_fields = ('order_number', 'subtotal', 'total_amount', 'created_at', 'updated_at','created_by', 'order_date')
     
     inlines = [PurchaseOrderItemInline]
     
@@ -56,6 +56,6 @@ class PurchaseOrderAdmin(admin.ModelAdmin):
             'fields': ('subtotal', 'tax_amount', 'shipping_cost', 'total_amount')
         }),
         ('Additional', {
-            'fields': ('notes', 'created_by')
+            'fields': ('notes',)
         }),
     )
